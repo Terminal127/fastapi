@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  fastapi-app:
+    build: .
+    container_name: smart-inventory-api
+    ports:
+      - "8002:8002"
+    environment:
+      - MONGODB_URI=mongodb+srv://terminalishere127:hello@cluster0.ezhgpwx.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+      - GOOGLE_API_KEY=AIzaSyDsi82MHuNMwZyUoJ5q6xN8yd9Q4yBw5gM
+    volumes:
+      - .:/app
+    restart: unless-stopped
+
+networks:
+  default:
+    driver: bridge

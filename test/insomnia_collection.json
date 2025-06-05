@@ -1,0 +1,304 @@
+{
+  "_type": "export",
+  "__export_format": 4,
+  "__export_date": "2025-06-03T12:00:00.000Z",
+  "__export_source": "insomnia.desktop.app:v8.6.1",
+  "resources": [
+    {
+      "_id": "req_01",
+      "parentId": "wrk_01",
+      "modified": 1717416000000,
+      "created": 1717416000000,
+      "url": "http://localhost:8000/health",
+      "name": "Health Check",
+      "description": "Check if the API and database are working",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {},
+      "metaSortKey": -1717416000000,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_02",
+      "parentId": "wrk_01",
+      "modified": 1717416000000,
+      "created": 1717416000000,
+      "url": "http://localhost:8000/items",
+      "name": "Get All Items",
+      "description": "Retrieve all items in the inventory",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {},
+      "metaSortKey": -1717416000000,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_03",
+      "parentId": "wrk_01",
+      "modified": 1717416000000,
+      "created": 1717416000000,
+      "url": "http://localhost:8000/",
+      "name": "API Info",
+      "description": "Get welcome message and API information",
+      "method": "GET",
+      "body": {},
+      "parameters": [],
+      "headers": [],
+      "authentication": {},
+      "metaSortKey": -1717416000000,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_04",
+      "parentId": "wrk_01",
+      "modified": 1717416000000,
+      "created": 1717416000000,
+      "url": "http://localhost:8000/chat",
+      "name": "AI Chat - Add Item",
+      "description": "Add an item using natural language",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"message\": \"add laptop 999.99 TechStore\",\n  \"session_id\": \"user1\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1717416000000,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_05",
+      "parentId": "wrk_01",
+      "modified": 1717416000000,
+      "created": 1717416000000,
+      "url": "http://localhost:8000/chat",
+      "name": "AI Chat - Search Items",
+      "description": "Search for items using natural language",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"message\": \"search for laptop\",\n  \"session_id\": \"user1\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1717416000000,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_06",
+      "parentId": "wrk_01",
+      "modified": 1717416000000,
+      "created": 1717416000000,
+      "url": "http://localhost:8000/chat",
+      "name": "AI Chat - Update Price",
+      "description": "Update item price using natural language",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"message\": \"update laptop price to 899.99\",\n  \"session_id\": \"user1\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1717416000000,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_07",
+      "parentId": "wrk_01",
+      "modified": 1717416000000,
+      "created": 1717416000000,
+      "url": "http://localhost:8000/chat",
+      "name": "AI Chat - Delete Item",
+      "description": "Delete an item using natural language",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"message\": \"delete laptop\",\n  \"session_id\": \"user1\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1717416000000,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_08",
+      "parentId": "wrk_01",
+      "modified": 1717416000000,
+      "created": 1717416000000,
+      "url": "http://localhost:8000/chat",
+      "name": "AI Chat - Bulk Add",
+      "description": "Add multiple items at once using natural language",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"message\": \"add multiple items: mouse 29.99 TechStore, keyboard 89.99 TechStore, monitor 299.99 DisplayCorp\",\n  \"session_id\": \"user1\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1717416000000,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_09",
+      "parentId": "wrk_01",
+      "modified": 1717416000000,
+      "created": 1717416000000,
+      "url": "http://localhost:8000/chat",
+      "name": "AI Chat - Price Increase",
+      "description": "Increase all prices by percentage",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"message\": \"increase all prices by 10%\",\n  \"session_id\": \"user1\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1717416000000,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "req_10",
+      "parentId": "wrk_01",
+      "modified": 1717416000000,
+      "created": 1717416000000,
+      "url": "http://localhost:8000/chat",
+      "name": "AI Chat - Show All Items",
+      "description": "Display all items in inventory",
+      "method": "POST",
+      "body": {
+        "mimeType": "application/json",
+        "text": "{\n  \"message\": \"show all items\",\n  \"session_id\": \"user1\"\n}"
+      },
+      "parameters": [],
+      "headers": [
+        {
+          "name": "Content-Type",
+          "value": "application/json"
+        }
+      ],
+      "authentication": {},
+      "metaSortKey": -1717416000000,
+      "isPrivate": false,
+      "settingStoreCookies": true,
+      "settingSendCookies": true,
+      "settingDisableRenderRequestBody": false,
+      "settingEncodeUrl": true,
+      "settingRebuildPath": true,
+      "settingFollowRedirects": "global",
+      "_type": "request"
+    },
+    {
+      "_id": "wrk_01",
+      "parentId": null,
+      "modified": 1717416000000,
+      "created": 1717416000000,
+      "name": "FastAPI Inventory Management",
+      "description": "AI-powered inventory management system with natural language processing",
+      "scope": "collection",
+      "_type": "workspace"
+    }
+  ]
+}

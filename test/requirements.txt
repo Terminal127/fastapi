@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+motor
+pydantic
+langchain
+langchain-google-genai
+langchain-core
+langchain-community
+python-multipart

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Items</title>
+</head>
+<body>
+    <h1>Items</h1>
+    <div class="items">
+    {% for item in items %}
+        <div class="item">
+            <h3>{{ item.name }}</h3>
+            <p>ID: {{ item.id }}</p>
+            <p>Price: ${{ item.price }}</p>
+            {% if item.description %}
+            <p>Description: {{ item.description }}</p>
+            {% endif %}
+            {% if item.tags %}
+            <p>Tags: {{ item.tags|join(', ') }}</p>
+            {% endif %}
+        </div>
+    {% endfor %}
+    </div>
+</body>
+</html>

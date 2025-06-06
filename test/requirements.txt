@@ -7,3 +7,10 @@ langchain-google-genai
 langchain-core
 langchain-community
 python-multipart
+matplotlib
+seaborn
+pandas
+qrcode
+Pillow
+httpx
+psutil

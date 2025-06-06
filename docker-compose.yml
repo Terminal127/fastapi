@@ -1,0 +1,50 @@
+version: '3.8'
+
+services:
+  # Backend FastAPI Service
+  backend:
+    build:
+      context: ./test
+      dockerfile: Dockerfile
+    container_name: inventory-backend
+    ports:
+      - "8002:8002"
+    environment:
+      - PYTHONPATH=/app
+      - MONGODB_URI=mongodb+srv://terminalishere127:hello@cluster0.ezhgpwx.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+      - GEMINI_API_KEY=AIzaSyDsi82MHuNMwZyUoJ5q6xN8yd9Q4yBw5gM
+    volumes:
+      - ./test:/app
+    networks:
+      - inventory-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8002/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  # Frontend Vue.js Service
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: inventory-frontend
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+    networks:
+      - inventory-network
+    volumes:
+      - ./frontend/src:/app/src:ro
+    environment:
+      - VUE_APP_API_BASE_URL=http://localhost:8002
+
+networks:
+  inventory-network:
+    driver: bridge
+
+# Optional: Add a volume for persistent data if using local database
+# volumes:
+#   mongodb_data:

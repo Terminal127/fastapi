@@ -151,15 +151,38 @@ export default {
           this.$refs.messageInput?.focus();
         });
       }
-    },
-
-    formatMessage(text) {
-      // Convert line breaks to <br> tags and handle basic formatting
+    },    formatMessage(text) {
+      // Convert markdown formatting to HTML
       return text
+        // Line breaks
         .replace(/\n/g, '<br>')
+        // Bold text: **text** or __text__
+        .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+        .replace(/__(.*?)__/g, '<strong>$1</strong>')
+        // Italic text: *text* or _text_
+        .replace(/\*(.*?)\*/g, '<em>$1</em>')
+        .replace(/_(.*?)_/g, '<em>$1</em>')
+        // Code blocks: `code`
+        .replace(/`(.*?)`/g, '<code>$1</code>')
+        // Headers: ## Header
+        .replace(/^## (.*$)/gm, '<h3>$1</h3>')
+        .replace(/^# (.*$)/gm, '<h2>$1</h2>')
+        // Bullet points: * item or - item
+        .replace(/^\* (.*$)/gm, '<li>$1</li>')
+        .replace(/^- (.*$)/gm, '<li>$1</li>')
+        // Wrap consecutive list items in <ul>
+        .replace(/(<li>.*<\/li>)/g, '<ul>$1</ul>')
+        .replace(/<\/ul>\s*<ul>/g, '')
+        // Icons and special formatting
         .replace(/✅/g, '<span class="success-icon">✅</span>')
         .replace(/❌/g, '<span class="error-icon">❌</span>')
         .replace(/⚠️/g, '<span class="warning-icon">⚠️</span>')
+        .replace(/🔧/g, '<span class="tool-icon">🔧</span>')
+        .replace(/📝/g, '<span class="note-icon">📝</span>')
+        .replace(/📦/g, '<span class="package-icon">📦</span>')
+        .replace(/🗑️/g, '<span class="delete-icon">🗑️</span>')
+        .replace(/🔄/g, '<span class="update-icon">🔄</span>')
+        // Price formatting
         .replace(/\$(\d+\.?\d*)/g, '<span class="price">$$$1</span>');
     },
 
@@ -315,6 +338,59 @@ export default {
   line-height: 1.4;
   word-wrap: break-word;
   font-size: 0.9rem;
+}
+
+/* Markdown formatting styles */
+.message-text strong {
+  font-weight: bold;
+  color: #ffffff;
+}
+
+.message-text em {
+  font-style: italic;
+  color: #cccccc;
+}
+
+.message-text code {
+  background: #222222;
+  border: 1px solid #333333;
+  border-radius: 3px;
+  padding: 2px 4px;
+  font-family: 'Courier New', monospace;
+  font-size: 0.85rem;
+  color: #00ff88;
+}
+
+.message-text h2 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #ffffff;
+  margin: 10px 0 5px 0;
+  border-bottom: 1px solid #333333;
+  padding-bottom: 3px;
+}
+
+.message-text h3 {
+  font-size: 1.1rem;
+  font-weight: bold;
+  color: #ffffff;
+  margin: 8px 0 4px 0;
+}
+
+.message-text ul {
+  margin: 8px 0;
+  padding-left: 20px;
+}
+
+.message-text li {
+  list-style-type: disc;
+  color: #cccccc;
+  margin: 3px 0;
+}
+
+.tool-icon, .note-icon, .package-icon, .delete-icon, .update-icon {
+  font-size: 1rem;
+  margin-right: 2px;
 }
 
 .message-time {
